@@ -11,20 +11,20 @@ class UsuariosController extends Controller
 {
 
 
-    public function PrimerUsuario() {
-        User::create([
+    // public function PrimerUsuario() {
+    //     User::create([
 
-            'name' => 'Luis Soriano',
-            'email' => 'admin@admin.com',
-            'foto' => '',
-            'estado' => 1,
-            'ultimo_login' => '',
-            'rol' => 'Administrador',
-            'password' => Hash::make('123'),
-            'id_sucursal' =>0,
+    //         'name' => 'Luis Soriano',
+    //         'email' => 'admin@admin.com',
+    //         'foto' => '',
+    //         'estado' => 1,
+    //         'ultimo_login' => '',
+    //         'rol' => 'Administrador',
+    //         'password' => Hash::make('123'),
+    //         'id_sucursal' =>0,
 
-        ]);
-    }
+    //     ]);
+    // }
 
 
     /**

@@ -9,18 +9,14 @@ return new class extends Migration {
      * Run the migrations.
      */
     public function up(): void
-
     {
-
-
         /*
-            EN ESTA MIGRACIÖN ENCONTRAMOS NUEVOS DATOS AÑADDIDOS A LA TABLA USER
+            EN ESTA MIGRACIÓN ENCONTRAMOS NUEVOS DATOS AÑADIDOS A LA TABLA USERS
         */
-
 
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_sucursal')->after('id'); // Nueva columna
+            $table->unsignedBigInteger('id_sucursal'); // Nueva columna sin after()
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -28,11 +24,11 @@ return new class extends Migration {
             $table->rememberToken();
             $table->timestamps();
 
-            // Nuevas columnas
-            $table->text('foto')->after('updated_at');
-            $table->text('ultimo_login')->after('foto');
-            $table->integer('estado')->after('ultimo_login');
-            $table->text('rol')->after('estado');
+            // Nuevas columnas sin after()
+            $table->text('foto');
+            $table->text('ultimo_login');
+            $table->integer('estado');
+            $table->text('rol');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
