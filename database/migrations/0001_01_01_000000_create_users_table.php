@@ -4,21 +4,35 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
+
     {
+
+
+        /*
+            EN ESTA MIGRACIÖN ENCONTRAMOS NUEVOS DATOS AÑADDIDOS A LA TABLA USER
+        */
+
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_sucursal')->after('id'); // Nueva columna
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            // Nuevas columnas
+            $table->text('foto')->after('updated_at');
+            $table->text('ultimo_login')->after('foto');
+            $table->integer('estado')->after('ultimo_login');
+            $table->text('rol')->after('estado');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
