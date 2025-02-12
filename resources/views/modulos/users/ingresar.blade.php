@@ -49,14 +49,18 @@
           <input type="email" class="form-control" placeholder="Email" name="email" required>
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
+
+        {{-- MENSAJE DE ERROR EN EL LOGIN --}}
+        @error('email')
+        <br>
+        <div class="alert alert-danger text-center">Error al intorducir email o contraseña</div>
+       @enderror
+
         <div class="form-group has-feedback">
           <input type="password" class="form-control" placeholder="Contraseña" name="password" required>
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 
-            @error('email')
-                <br>
-                <div class="alert alert-danger text-center">Error al intorducir email o contraseña</div>
-            @enderror
+           
 
 
         </div>
