@@ -19,4 +19,5 @@ Auth::routes();
 
 
 Route::get('Sucursales', [SucursalesController::class, 'index']);
+Route::post('Sucursales',[SucursalesController::class, 'store']);
 

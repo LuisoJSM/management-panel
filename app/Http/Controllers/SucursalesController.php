@@ -17,23 +17,30 @@ class SucursalesController extends Controller
 
     public function index()
     {
-        return view('modulos.users.Sucursales');
+
+        if(auth()->user()->rol != 'Administrador'){
+            return redirect('Inicio');
+        }
+
+        $sucursales = Sucursales::all();
+
+
+        return view('modulos.users.Sucursales', compact ('sucursales'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
+   
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        Sucursales::create([
+            'nombre'=>$request->nombre,
+            'estado'=>1
+
+        ]);
+
+        return redirect('Sucursales');
     }
 
     /**
