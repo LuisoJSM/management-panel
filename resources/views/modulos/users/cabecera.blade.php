@@ -276,15 +276,15 @@
 
                   {{-- FUNCION LOGOUT CON JAVASCRIPT --}}
 
-                  <a href="{{ route('logout') }}" class="btn btn-danger btn-flat" 
+                  <a href="{{ route('logout') }}" class="btn btn-danger btn-flat"
                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                   Salir
                </a>
-               
+
                <form id="logout-form" method="POST" action="{{ route('logout') }}">
                    @csrf
                </form>
-               
+
               </li>
             </ul>
           </li>
