@@ -40,7 +40,7 @@ class SucursalesController extends Controller
 
         ]);
 
-        return redirect('Sucursales');
+        return redirect('Sucursales')->with('success', 'La sucursal ha sido agregada');
     }
 
     /**
