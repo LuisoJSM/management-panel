@@ -15,7 +15,7 @@ class UsuariosController extends Controller
     //     User::create([
 
     //         'name' => 'Luis Soriano',
-    //         'email' => 'admin@admin.com',
+    //         'email' => 'luis@luis.com',
     //         'foto' => '',
     //         'estado' => 1,
     //         'ultimo_login' => '',

@@ -28,7 +28,7 @@ class SucursalesController extends Controller
         return view('modulos.users.Sucursales', compact ('sucursales'));
     }
 
-   
+
     /**
      * Store a newly created resource in storage.
      */
@@ -54,24 +54,34 @@ class SucursalesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Sucursales $sucursales)
+    public function edit($id_sucursal)
     {
-        //
+        $sucursal = Sucursales::find($id_sucursal);
+        return response()->json($sucursal);
     }
+
+
+
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Sucursales $sucursales)
+    public function update(Request $request)
     {
-        //
+
+
+        Sucursales::where('id', $request->id)->update(['nombre'=>$request->nombre]);
+
+        return redirect('Sucursales')->with('success', 'La sucursal ha sido actualizada correctamente');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Sucursales $sucursales)
+    public function CambiarEstado($estado, $id_sucursal)
     {
-        //
+        Sucursales::find($id_sucursal)->update(['estado'=>$estado]);
+        return redirect('Sucursales');
     }
 }

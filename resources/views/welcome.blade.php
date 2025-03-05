@@ -25,9 +25,9 @@
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{ url('bower_components/bootstrap-daterangepicker/daterangepicker.css') }}">
 
-  <!-- DataTables -->
+  <!-- DataTables (✅ Agregados los archivos correctos) -->
   <link rel="stylesheet" href="{{ url('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ url('bower_components/datatables.net-bs/css/responsive.bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url('bower_components/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}"> <!-- ✅ Faltaba este archivo -->
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -79,7 +79,7 @@
   <script src="{{ url('bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 
   <!-- FastClick -->
-  <script src="{{ url('bower_components/fastclick/lib/fastclick.js') }}"></script> 
+  <script src="{{ url('bower_components/fastclick/lib/fastclick.js') }}"></script>
 
   <!-- AdminLTE App -->
   <script src="{{ url('dist/js/adminlte.min.js') }}"></script>
@@ -90,43 +90,27 @@
   <!-- AdminLTE for demo purposes -->
   <script src="{{ url('dist/js/demo.js') }}"></script>
 
-  <!-- DataTables -->
-  <script src="{{ url('bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script> 
-  <script src="{{ url('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script> 
-  <script src="{{ url('bower_components/datatables.net-bs/js/responsive.bootstrap.min.js') }}"></script> 
+  <!-- DataTables (✅ Agregados los archivos correctos) -->
+  <script src="{{ url('bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ url('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+  <script src="{{ url('bower_components/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script> <!-- ✅ Faltaba este archivo -->
+  <script src="{{ url('bower_components/datatables.net-responsive-bs/js/responsive.bootstrap.min.js') }}"></script> <!-- ✅ Faltaba este archivo -->
 
-
- <!-- Archivo personalizado -->
- <script src="{{ url('js/plantilla.js') }}"></script>
-
+  <!-- Archivo personalizado -->
+  <script src="{{ url('js/plantilla.js') }}"></script>
 
   {{-- sweet alert 2 --}}
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
-
- 
-
-
-@if (session('success'))
-
-
+  @if (session('success'))
   <script type="text/javascript">
-
       Swal.fire({
         title: '{{ session('success') }}',
         icon: "success",
         confirmButtonText: 'Aceptar'
       });
-
-
   </script>
-
-
-@endif
-
-
-
+  @endif
 
 </body>
 </html>

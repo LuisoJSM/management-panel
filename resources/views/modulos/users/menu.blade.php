@@ -26,7 +26,7 @@
 
         <ul class="sidebar-menu" data-widget="tree">
             <li>
-                <a href="{{ url('Inicio') }}">
+                <a href="{{ url('Sucursales') }}">
                     <i class="fa fa-building"></i>
                     <span>Sucursales</span>
                 </a>

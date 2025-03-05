@@ -1,4 +1,5 @@
 $(".table").DataTable({
+    "responsive": true,
 
     "ordering": false,
 
@@ -24,5 +25,28 @@ $(".table").DataTable({
 
 
     }
+
+});
+
+
+// Ediatr sucursales ********************************************************
+
+$(".table").on('click','.btnEditarSucursal',function(){
+
+
+var idSucursal = $(this).attr('idSucursal');
+
+$.ajax({
+
+    url : 'Editar-Sucursal/'+idSucursal,
+    type: 'GET',
+    success: function(sucursal) {
+
+        $("#nombreEditar").val(sucursal.nombre);
+        $("#idEditar").val(sucursal.id);
+
+    }
+
+})
 
 });
