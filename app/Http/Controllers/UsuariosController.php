@@ -27,6 +27,61 @@ class UsuariosController extends Controller
     // }
 
 
+
+    public function ActualizarMisDatos(Request $request) {
+
+
+        if(auth()->user()->email != request('email')){
+            if(request('password')){
+                $datos = request()->validate([
+                    'name'=>['required','string','max:50'],
+                    'email'=>['required','email','unique:users'],
+                    'password'=> ['required', 'string', 'min:3'],
+                ]);
+            }else{
+
+                $datos = request()->validate([
+                    'name'=>['required','string','max:50'],
+                    'email'=>['required','email','unique:users'],
+                ]);
+
+            }
+        }else{
+
+            if(request('password')){
+                $datos = request()->validate([
+                    'name'=>['required','string','max:50'],
+                    'email'=>['required','email'],
+                    'password'=> ['required', 'string', 'min:3'],
+                ]);
+            }else{
+
+                $datos = request()->validate([
+                    'name'=>['required','string','max:50'],
+                    'email'=>['required','email','unique:users'],
+                ]);
+
+            }
+
+        }
+
+        if(request('fotoPerfil')){
+            if(auth()->user()->foto != ''){
+                $path = storage_path('app/public/'.auth()->user()->foto);
+
+                unlink($path);
+            }
+
+            $rutaImg = $request['fotoPerfil']->store
+
+        }
+
+
+    }
+
+
+
+
     /**
      * Display a listing of the resource.
      */
